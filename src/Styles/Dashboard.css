@@ -1,12 +1,11 @@
-/* Original dashboard styles */
-.mee {
+ .project {
   display: flex;
   justify-content: center;
   align-content: end;
-  width: 100%; /* Added to ensure full width */
+  width: 100%; 
 }
 
-/* App layout styles */
+ 
 .app-container {
 display: flex;
 min-height: 100vh;
@@ -18,10 +17,10 @@ flex: 1;
 padding: 20px;
 background-color: #f5f5f7;
 overflow-y: auto;
-width: 100%; /* Ensure content wrapper takes full width */
+width: 100%;  
 }
 
-/* Make Dashboard content use full width */
+ 
 .content {
 width: 100%;
 max-width: 100%;

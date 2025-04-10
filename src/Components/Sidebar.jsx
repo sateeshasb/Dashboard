@@ -8,7 +8,7 @@ import { GrSystem } from "react-icons/gr";
 import { FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaRegBell } from "react-icons/fa";
-import '../styles/Sidebar.css';  // Fixed: 'style' → 'styles'
+import '../styles/Sidebar.css';  
 import { Link } from "react-router-dom";
 import logo from '../Components/logo.jpg'
 

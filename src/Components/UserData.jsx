@@ -111,9 +111,9 @@ const UserData = () => {
     stripeClasses: [],
     ordering: false,
     paging: true,  
-    searching: true, // Ensure search bar is enabled
-    pageLength: 5, // Set default number of rows per page
-    lengthMenu: [[1, 2, 3, 4], [1, 2, 3, 4]], // Allow user to change page length
+    searching: true, 
+    pageLength: 5, 
+    lengthMenu: [[1, 2, 3, 4], [1, 2, 3, 4]],  
      
     createdRow: function (row) {
       row.style.marginBottom = "10px";

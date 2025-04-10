@@ -11,17 +11,16 @@ const ScreenShot = () => {
   const [showCalendar, setShowCalendar] = useState(false);
   const [dateRange, setDateRange] = useState([new Date(), new Date()]);
   const [activeFilter, setActiveFilter] = useState("all");
-
-  // Generate date-based images on component mount
+ 
   useEffect(() => {
     const generatedImages = generateDateBasedImages();
     setImages(generatedImages);
-    // Set initial date range to Today
+  
     const today = new Date();
     setDateRange([today, today]);
   }, []);
 
-  // Generate images with dates
+ 
   const generateDateBasedImages = () => {
     const today = new Date();
     const imageList = [];
@@ -48,8 +47,7 @@ const ScreenShot = () => {
     for (let i = 0; i < 10; i++) {
       const currentDate = new Date();
       currentDate.setDate(today.getDate() + i);
-      
-      // Format the date as a string
+  
       const dateString = currentDate.toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
@@ -67,17 +65,17 @@ const ScreenShot = () => {
     return imageList;
   };
 
-  // Handle dropdown option selection
+   
   const handleOptionSelect = (option) => {
     setDateOption(option);
     
-    // Only show calendar for Custom option
+  
     if (option === "Custom") {
       setShowCalendar(true);
     } else {
       setShowCalendar(false);
       
-      // Set date range based on selected option
+      
       const today = new Date();
       let start = new Date(today);
       let end = new Date(today);
@@ -102,7 +100,7 @@ const ScreenShot = () => {
           end = new Date(today.getFullYear(), today.getMonth(), 0);
           break;
         default:
-          // Today is default
+        
           break;
       }
       
@@ -112,13 +110,13 @@ const ScreenShot = () => {
     setShowDropdown(false);
   };
 
-  // Handle category filter selection
+  
   const handleFilterSelect = (category) => {
     setFilter(category);
     setActiveFilter(category);
   };
 
-  // Handle calendar date range selection
+  
   const handleCalendarChange = (value) => {
     setDateRange(value);
     if (value[0] && value[1]) {
@@ -126,7 +124,7 @@ const ScreenShot = () => {
     }
   };
 
-  // Format date range for display
+  
   const formatDateRange = () => {
     if (dateOption === "Custom" && dateRange[0] && dateRange[1]) {
       const formatDate = (date) => {
@@ -141,19 +139,19 @@ const ScreenShot = () => {
     return dateOption;
   };
 
-  // Filter images based on category and date range
+ 
   const filteredImages = images.filter(img => {
-    // Category filter
+ 
     const categoryMatch = filter === "all" || img.category === filter;
     
-    // Date filter
+ 
     let dateMatch = true;
     if (dateRange[0] && dateRange[1]) {
       const imgDate = new Date(img.date);
       const startDate = new Date(dateRange[0]);
       const endDate = new Date(dateRange[1]);
       
-      // Reset time components for accurate comparison
+      
       imgDate.setHours(0, 0, 0, 0);
       startDate.setHours(0, 0, 0, 0);
       endDate.setHours(0, 0, 0, 0);
@@ -166,7 +164,7 @@ const ScreenShot = () => {
 
   return (
     <div className="screenshot-container">
-      {/* Date Range Dropdown */}
+   
       <div className="date-dropdown">
         <button 
           className="dropdown-button" 
@@ -187,8 +185,7 @@ const ScreenShot = () => {
           </div>
         )}
       </div>
-
-      {/* Calendar for Custom Date Selection */}
+ 
       {showCalendar && (
         <div className="calendar-wrapper">
           <div className="calendar-header">Select Date Range:</div>
@@ -199,8 +196,7 @@ const ScreenShot = () => {
           />
         </div>
       )}
-
-      {/* Category Filter Buttons */}
+ 
       <div className="filter-buttons">
         <button 
           className={activeFilter === "all" ? "active" : ""} 
@@ -234,7 +230,7 @@ const ScreenShot = () => {
         </button>
       </div>
 
-      {/* Image Gallery with Date and Category Labels */}
+      
       <div className="image-gallery">
         {filteredImages.length > 0 ? (
           filteredImages.map((img, index) => (

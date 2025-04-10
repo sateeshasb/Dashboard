@@ -1,10 +1,10 @@
 import React from 'react';
 import Content from './Content';
-import "../styles/Dashboard.css"; // Make sure this path is correct
+import "../styles/Dashboard.css";  
 
 const Dashboard = () => {
   return (
-    <div className='mee' style={{ width: '100%' }}>
+    <div className='project' style={{ width: '100%' }}>
       <Content />
     </div>
   );
