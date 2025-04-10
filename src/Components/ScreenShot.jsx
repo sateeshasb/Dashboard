@@ -150,8 +150,7 @@ const ScreenShot = () => {
       const imgDate = new Date(img.date);
       const startDate = new Date(dateRange[0]);
       const endDate = new Date(dateRange[1]);
-      
-      
+            
       imgDate.setHours(0, 0, 0, 0);
       startDate.setHours(0, 0, 0, 0);
       endDate.setHours(0, 0, 0, 0);
@@ -230,7 +229,6 @@ const ScreenShot = () => {
         </button>
       </div>
 
-      
       <div className="image-gallery">
         {filteredImages.length > 0 ? (
           filteredImages.map((img, index) => (
