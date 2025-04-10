@@ -1,0 +1,86 @@
+/* ScreenShot.css */
+
+.screenshot-container {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.date-dropdown {
+  margin-bottom: 15px;
+}
+
+.dropdown-button {
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.dropdown-menu button {
+  display: block;
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background: #f0f0f0;
+}
+
+.calendar-wrapper {
+  margin: 15px 0;
+}
+
+.filter-buttons {
+  margin: 20px 0;
+}
+
+.filter-buttons button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  background: white;
+  color: #007bff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter-buttons .active {
+  background: #007bff;
+  color: white;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.image-container {
+  width: 200px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.no-images-message {
+  margin-top: 20px;
+  color: #666;
+}

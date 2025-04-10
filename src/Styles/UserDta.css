@@ -1,0 +1,77 @@
+.table-container {
+    font-size: 14px;
+    padding: 16px;
+  }
+  
+  .custom-row {
+    background: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+  }
+  .custom-row:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+   
+  .employee-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+  }
+  .employee-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .name {
+    font-weight: bold;
+  }
+  .department {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .time-text {
+    font-weight: bold;
+  }
+   
+  .badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+  }
+   
+  .task-title {
+    font-weight: bold;
+  }
+  .task-subtitle {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .screenshot-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: none;
+    color: blue;
+    border: 1px solid blue;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .screenshot-btn:hover {
+    background: blue;
+    color: white;
+  }
+  
