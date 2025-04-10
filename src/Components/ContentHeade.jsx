@@ -2,7 +2,7 @@ import React from 'react'
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaRegBell } from "react-icons/fa";
 import { CgNotes } from "react-icons/cg";
-import '../styles/content.css'
+import "../Styles/Content.css";
  
 
 const ContentHeader = () => {

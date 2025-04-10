@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Card.css'
+import "../Styles/Card.css";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { IoIosTrendingDown } from "react-icons/io";
 import { IoTrendingUpSharp } from "react-icons/io5";
