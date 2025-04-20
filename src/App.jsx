@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
 import Dashboard from './Components/Dashboard';
 import ScreenShot from './Components/ScreenShot';
-// Remove the CSS import for now, we'll add the styles directly to an existing CSS file
+import Employees from './Components/Employees';
+import "./App.css"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/screenshot" element={<ScreenShot />} />
+            <Route path="/Employees" element={<Employees />} />
           </Routes>
         </div>
       </div>

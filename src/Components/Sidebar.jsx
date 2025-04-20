@@ -65,6 +65,9 @@ const Sidebar = () => {
                   height: 30, 
                }}/>
             </div>
+            <div className='name'>
+               <h6>joe Geller</h6>
+               </div>
         </div>
     </div>
     </div>

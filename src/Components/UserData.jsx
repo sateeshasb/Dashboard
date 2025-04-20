@@ -48,7 +48,7 @@ const UserData = () => {
             orderable: false,
             render: function (data, type, row) {
               return `<div style="display:flex;align-items:center;gap:10px;font-size:10px">
-                <div style="width:35px;height:35px;border-radius:50%;background-color:${row.initials === "JS" ? "green" : row.initials === "DB" ? "blue" : "yellow"};display:flex;align-items:center;justify-content:center;font-weight:bold;color:white">
+                <div style="width:35px;height:35px;border-radius:50%;background-color:${row.initials === "JS" ? "green" : row.initials === "DB" ? "blue" : row.initials === "MA" ? "red" : "yellow"};display:flex;align-items:center;justify-content:center;font-weight:bold;color:white">
                   ${row.initials}
                 </div>
                 <div>
@@ -122,7 +122,7 @@ const UserData = () => {
         createdRow: function (row) {
           $(row).css({
             'margin-bottom': '10px',
-            'padding': '8px',
+            'padding': '5px',
             'box-shadow': '1px 1px 3px rgba(0, 0, 0, 0.2)',
             'border-radius': '5px',
             'font-size': '10px'
@@ -139,7 +139,7 @@ const UserData = () => {
           $(settings.nTable).css({
             'border': 'none',
             'border-collapse': 'separate',
-            'border-spacing': '0 10px'
+            'border-spacing': '0 5px'
           });
           
           $(settings.nTable).find('td, th').css('border', 'none');
