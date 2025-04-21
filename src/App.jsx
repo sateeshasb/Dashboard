@@ -4,7 +4,7 @@ import Sidebar from './Components/Sidebar';
 import Dashboard from './Components/Dashboard';
 import ScreenShot from './Components/ScreenShot';
 import Employees from './Components/Employees';
-import "./App.css"
+import './App.css';
 
 function App() {
   return (
