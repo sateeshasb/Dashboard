@@ -4,6 +4,8 @@ import Sidebar from './Components/Sidebar';
 import Dashboard from './Components/Dashboard';
 import ScreenShot from './Components/ScreenShot';
 import Employees from './Components/Employees';
+import UserData from './Components/UserData';
+import UserActivity from './Components/UserActivity';
 import './App.css';
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/screenshot" element={<ScreenShot />} />
-            <Route path="/Employees" element={<Employees />} />
+            <Route path="/employees" element={<Employees />} />
+            <Route path="/userdata" element={<UserData />} />
+            <Route path="/user/:id" element={<UserActivity />} />
           </Routes>
         </div>
       </div>

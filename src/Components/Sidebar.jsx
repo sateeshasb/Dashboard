@@ -6,11 +6,14 @@ import { MdOutlinePeopleAlt, MdOutlineShoppingBag } from 'react-icons/md';
 import { GrSystem } from 'react-icons/gr';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { IoMdSettings } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../Components/logo.jpg';
 import '../Styles/Sidebar.css';
 
 const Sidebar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <div className="menu">
       <div className="logo">
@@ -21,46 +24,45 @@ const Sidebar = () => {
       </div>
       <hr />
       <div className="menu--list">
-        <Link to="/dashboard" className="item">
+        <Link to="/dashboard" className={`item ${currentPath === '/dashboard' ? 'active' : ''}`}>
           <BiHome className="icon" />
           Dashboard
         </Link>
 
-        <a href="#" className="item">
+        <Link to="#" className="item">
           <IoMdTimer className="icon" />
           Real Time Tracking
-        </a>
+        </Link>
 
-        <Link to="/screenshot" className="item">
+        <Link to="/screenshot" className={`item ${currentPath === '/screenshot' ? 'active' : ''}`}>
           <FaRegImages className="icon" />
           Screenshot
         </Link>
 
-        {/* ✅ Fixed this */}
-        <Link to="/employees" className="item">
+        <Link to="/employees" className={`item ${currentPath === '/employees' ? 'active' : ''}`}>
           <MdOutlinePeopleAlt className="icon" />
           Employees
         </Link>
 
-        <a href="#" className="item">
+        <Link to="#" className="item">
           <MdOutlineShoppingBag className="icon" />
           Projects
-        </a>
+        </Link>
 
-        <a href="#" className="item">
+        <Link to="#" className="item">
           <GrSystem className="icon" />
           Apps and Websites
-        </a>
+        </Link>
 
-        <a href="#" className="item">
+        <Link to="#" className="item">
           <FaCalendarAlt className="icon" />
           Time And Date
-        </a>
+        </Link>
 
-        <a href="#" className="item">
+        <Link to="#" className="item">
           <IoMdSettings className="icon" />
           Settings
-        </a>
+        </Link>
 
         <div className="photo">
           <img

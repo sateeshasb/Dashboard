@@ -11,20 +11,19 @@ const ScreenShot = () => {
   const [showCalendar, setShowCalendar] = useState(false);
   const [dateRange, setDateRange] = useState([new Date(), new Date()]);
   const [activeFilter, setActiveFilter] = useState("all");
- 
+
   useEffect(() => {
     const generatedImages = generateDateBasedImages();
     setImages(generatedImages);
-  
+
     const today = new Date();
     setDateRange([today, today]);
   }, []);
 
- 
   const generateDateBasedImages = () => {
     const today = new Date();
     const imageList = [];
-    
+
     const imageSources = [
       "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/krishna1.jpg",
       "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/smoking-burger.png",
@@ -36,24 +35,34 @@ const ScreenShot = () => {
       "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/Bootstrap.jpeg",
       "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/Java.png",
       "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/MongoDB.png",
+      "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/Python.jpeg",
+      "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/dosa.jpg",
+      "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/idli.jpg",
+      "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/firebase.png",
+      "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/cloudflare.png",
+      "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/rocket.jpg",
+      "https://pub-5b753a99da3f47b6b455234213c4e61f.r2.dev/satellite.jpg"
     ];
-    
+
     const categories = [
-      "others", "food", "technology", "technology", 
-      "technology", "technology", "technology", 
-      "technology", "technology", "database"
+      "others", "food", "technology", "technology",
+      "technology", "technology", "technology",
+      "technology", "technology", "database",
+      "technology", "food", "food",
+      "database", "database",
+      "others", "others"
     ];
-    
-    for (let i = 0; i < 10; i++) {
+
+    for (let i = 0; i < imageSources.length; i++) {
       const currentDate = new Date();
       currentDate.setDate(today.getDate() + i);
-  
+
       const dateString = currentDate.toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
         year: "numeric"
       });
-      
+
       imageList.push({
         date: currentDate,
         displayDate: dateString,
@@ -61,26 +70,23 @@ const ScreenShot = () => {
         category: categories[i]
       });
     }
-    
+
     return imageList;
   };
 
-   
   const handleOptionSelect = (option) => {
     setDateOption(option);
-    
-  
+
     if (option === "Custom") {
       setShowCalendar(true);
     } else {
       setShowCalendar(false);
-      
-      
+
       const today = new Date();
       let start = new Date(today);
       let end = new Date(today);
-      
-      switch(option) {
+
+      switch (option) {
         case "Yesterday":
           start.setDate(today.getDate() - 1);
           end.setDate(today.getDate() - 1);
@@ -100,23 +106,20 @@ const ScreenShot = () => {
           end = new Date(today.getFullYear(), today.getMonth(), 0);
           break;
         default:
-        
           break;
       }
-      
+
       setDateRange([start, end]);
     }
-    
+
     setShowDropdown(false);
   };
 
-  
   const handleFilterSelect = (category) => {
     setFilter(category);
     setActiveFilter(category);
   };
 
-  
   const handleCalendarChange = (value) => {
     setDateRange(value);
     if (value[0] && value[1]) {
@@ -124,7 +127,6 @@ const ScreenShot = () => {
     }
   };
 
-  
   const formatDateRange = () => {
     if (dateOption === "Custom" && dateRange[0] && dateRange[1]) {
       const formatDate = (date) => {
@@ -139,39 +141,35 @@ const ScreenShot = () => {
     return dateOption;
   };
 
- 
   const filteredImages = images.filter(img => {
- 
     const categoryMatch = filter === "all" || img.category === filter;
-    
- 
+
     let dateMatch = true;
     if (dateRange[0] && dateRange[1]) {
       const imgDate = new Date(img.date);
       const startDate = new Date(dateRange[0]);
       const endDate = new Date(dateRange[1]);
-            
+
       imgDate.setHours(0, 0, 0, 0);
       startDate.setHours(0, 0, 0, 0);
       endDate.setHours(0, 0, 0, 0);
-      
+
       dateMatch = imgDate >= startDate && imgDate <= endDate;
     }
-    
+
     return categoryMatch && dateMatch;
   });
 
   return (
     <div className="screenshot-container">
-   
       <div className="date-dropdown">
-        <button 
-          className="dropdown-button" 
+        <button
+          className="dropdown-button"
           onClick={() => setShowDropdown(!showDropdown)}
         >
           {formatDateRange()} <span>▼</span>
         </button>
-        
+
         {showDropdown && (
           <div className="dropdown-menu">
             <button onClick={() => handleOptionSelect("Today")}>Today</button>
@@ -184,68 +182,35 @@ const ScreenShot = () => {
           </div>
         )}
       </div>
- 
+
       {showCalendar && (
         <div className="calendar-wrapper">
           <div className="calendar-header">Select Date Range:</div>
-          <Calendar 
+          <Calendar
             onChange={handleCalendarChange}
             selectRange={true}
             value={dateRange}
           />
         </div>
       )}
- 
+
       <div className="filter-buttons">
-        <button 
-          className={activeFilter === "all" ? "active" : ""} 
-          onClick={() => handleFilterSelect("all")}
-        >
-          All
-        </button>
-        <button 
-          className={activeFilter === "food" ? "active" : ""} 
-          onClick={() => handleFilterSelect("food")}
-        >
-          Food
-        </button>
-        <button 
-          className={activeFilter === "technology" ? "active" : ""} 
-          onClick={() => handleFilterSelect("technology")}
-        >
-          Technology
-        </button>
-        <button 
-          className={activeFilter === "database" ? "active" : ""} 
-          onClick={() => handleFilterSelect("database")}
-        >
-          Database
-        </button>
-        <button 
-          className={activeFilter === "others" ? "active" : ""} 
-          onClick={() => handleFilterSelect("others")}
-        >
-          Others
-        </button>
+        <button className={activeFilter === "all" ? "active" : ""} onClick={() => handleFilterSelect("all")}>All</button>
+        <button className={activeFilter === "food" ? "active" : ""} onClick={() => handleFilterSelect("food")}>Food</button>
+        <button className={activeFilter === "technology" ? "active" : ""} onClick={() => handleFilterSelect("technology")}>Technology</button>
+        <button className={activeFilter === "database" ? "active" : ""} onClick={() => handleFilterSelect("database")}>Database</button>
+        <button className={activeFilter === "others" ? "active" : ""} onClick={() => handleFilterSelect("others")}>Others</button>
       </div>
 
       <div className="image-gallery">
         {filteredImages.length > 0 ? (
           filteredImages.map((img, index) => (
             <div key={index} className="image-container">
-              
-              <img
-                src={img.src}
-                alt={`${img.category} image`}
-                className="gallery-image"
-              />
-               
+              <img src={img.src} alt={`${img.category} image`} className="gallery-image" />
             </div>
           ))
         ) : (
-          <div className="no-images-message">
-            No images found for the selected filters.
-          </div>
+          <div className="no-images-message">No images found for the selected filters.</div>
         )}
       </div>
     </div>
